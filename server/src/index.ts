@@ -5,8 +5,9 @@ import cors from "cors";
 import { roomHandler } from "./room";
 
 const app = express();
-app.use(cors);
+app.use(cors());
 const port = 8089;
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -23,9 +24,7 @@ io.on("connection", (socket) => {
     console.log("user disconnected");
   });
 });
-app.get("/", (_req: Request, res: Response) => {
-  res.send("<h1>Nhiệt liệt chào mừng quý vị đại coder!</h1>");
-});
+
 server.listen(port, () => {
   console.log(`listening on *:${port}`);
 });
