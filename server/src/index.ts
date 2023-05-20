@@ -6,6 +6,9 @@ import { roomHandler } from "./room";
 
 const app = express();
 app.use(cors());
+app.get("/", (_req: Request, res: Response) => {
+  res.send("Express + TypeScript Server");
+});
 const port = 8089;
 
 const server = http.createServer(app);
